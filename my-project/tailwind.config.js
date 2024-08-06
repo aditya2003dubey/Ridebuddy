@@ -9,5 +9,12 @@ export default {
     extend: {},
   },
   plugins: [],
+  theme: {
+    // ...
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    // ...
+  ],
 }
 
