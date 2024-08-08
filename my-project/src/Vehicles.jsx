@@ -93,10 +93,10 @@ function Vehicles() {
     }
   return (
     <>
-    <div className='w-11/12 border-slate-400 border my-3 p-2'>
+    <div className='w-full border-slate-400 border my-3 p-1'>
       <h4>Vehicles</h4>
     </div>
-    <div className='w-11/12 border-slate-400 border'>
+    <div className='w-full border-slate-400 border'>
       <DataTable
       customStyles={customStyles}
       columns={columns}
