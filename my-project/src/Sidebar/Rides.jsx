@@ -72,7 +72,7 @@ function Rides(){
      const data=[
         {
             id:181,
-           user_name:'laila',
+           user_name:'Tushar',
            phone:981076202,
            vehicle_number :'Sbahanbaj',
             pick_up:'Merrut,Uttar Pradesh,India',
@@ -100,6 +100,44 @@ function Rides(){
 
 
         },
+        {
+            id:183,
+            user_name:'Tushar',
+            phone:9810762102,
+            vehicle_number :'Sbahanbaj',
+             pick_up:'Merrut,Uttar Pradesh,India',
+             destination_location:'Noida,UttarPradesh,India',
+             scheduled_time:'May 30,03:25PM',
+             estimated_end_time:'May 30,04:56PM',
+             passenger_count:'0',
+             status:'Cancelled',
+             created_at:'May29,03:27PM'
+        },
+        {
+            id:180,
+            user_name:'Harry',
+            phone:1234567890,
+            vehicle_number :'UP15DV6530',
+             pick_up:'Merrut,Uttar Pradesh,India',
+             destination_location:'Sector 128,Noida,Uttar Pradesh,India',
+             scheduled_time:'May 28,08:00PM',
+             estimated_end_time:'May 28,09:58PM',
+             passenger_count:'0',
+             status:'Completed',
+             created_at:'May 28,07:20 PM'
+        },{
+            id:179,
+            user_name:'Harry',
+            phone:1234567890,
+            vehicle_number :'UP15DV6530',
+             pick_up:'Merrut,Uttar Pradesh,India',
+             destination_location:'IMS ENGINEERING COLLEGE',
+             scheduled_time:'May 28,09:00PM',
+             estimated_end_time:'May 28,10:18PM',
+             passenger_count:'0',
+             status:'Cancelled',
+             created_at:'May28,07:08PM'
+        }
      ];
 
      const customStyles = {

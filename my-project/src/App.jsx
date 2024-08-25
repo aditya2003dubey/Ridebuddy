@@ -1,26 +1,30 @@
 import React from 'react'
 import './App.css'
-import Navbar from './Sidebar/navbar.jsx'
-import Sidebar from './Sidebar/Sidebar.jsx'
-import Vehicles from './Sidebar/Vehicles.jsx'
-import Dashboard from './Sidebar/Dashboard.jsx'
-import Highlights from './Sidebar/Highlights.jsx'
-import Emergency from './Sidebar/Emergency.jsx'
-import Interests from './Sidebar/Interests.jsx'
-import Reports from './Sidebar/Reports.jsx'
+import Navbar from './navbar.jsx'
+import Sidebar from './Sidebar.jsx'
+import Dashboard from './Dashboard.jsx'
+import Vehicles from './Vehicles.jsx'
+import Highlights from './Highlights.jsx'
+import Emergency from './Emergency.jsx'
+import Interests from './Interests.jsx'
+import Reports from './Reports.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Setting from './Sidebar/Setting.jsx'
-import Users from './Sidebar/Users.jsx'
-import Rides from './Sidebar/Rides.jsx'
-import VehicleVerification from './Sidebar/Vehicle_Verfication.jsx'
-import Banner from './Sidebar/Banner.jsx'
-import Transaction from './Sidebar/Transactions.jsx'
-import Withdrawal from './Sidebar/Withdrawls.jsx'
+import Setting from './Setting.jsx'
+import Users from './Users.jsx'
+import Rides from './Rides.jsx'
+import VehicleVerification from './Vehicle_Verfication.jsx'
+import Banner from './Banner.jsx'
+import Transaction from './Transactions.jsx'
+import Withdrawal from './Withdrawls.jsx'
+// import Highlights from './Highlights.jsx'
 
 function App() {
+
+ 
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -32,6 +36,21 @@ function App() {
         <div className='basis-1/5'><Sidebar/></div>
         <div className='basis-4/5'><Dashboard/></div>
         </div></> ,
+    },
+    {
+      path: "/view",
+      element: <><Navbar/><div className='flex'>
+        <div className='basis-1/5'><Sidebar/></div>
+        <div className='basis-4/5'><View/></div>
+        </div></> ,
+    },
+    {
+      path:'/vechile_details',
+      element:<><Navbar/><div className='flex'>
+        <div className='basis-1/5'><Sidebar/></div>
+        <div className='basis-4/5'><VechileDetails/></div>
+        </div></>
+
     },
     {
       path: "/users",
@@ -69,6 +88,14 @@ function App() {
         </div></> ,
     },
     {
+      path: "/notification",
+      element: <><Navbar/><div className='flex'>
+        <div className='basis-1/5 w-1/6'><Sidebar/></div>
+        <div className='basis-4/5 w-5/6'><Notification/></div>
+        </div></> ,
+    },
+    
+    {
       path: "/vehicle_verification",
       element: <><Navbar/><div className='flex'>
         <div className='basis-1/5 w-1/6'><Sidebar/></div>
@@ -80,6 +107,13 @@ function App() {
       element: <><Navbar/><div className='flex'>
         <div className='basis-1/5 w-1/6'><Sidebar/></div>
         <div className='basis-4/5 w-5/6' ><Banner/></div>
+        </div></> ,
+    },
+    {
+     path:"/User_Verification",
+     element: <><Navbar/><div className='flex'>
+        <div className='basis-1/5 w-1/6'><Sidebar/></div>
+        <div className='basis-4/5 w-5/6' ><UserVerification/></div>
         </div></> ,
     },
     {
@@ -119,6 +153,7 @@ function App() {
           <div className='basis-4/5 w-5/6' ><Setting/></div>
           </div></> ,
       },
+      
   ]
   );
 

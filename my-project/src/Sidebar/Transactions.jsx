@@ -179,16 +179,27 @@ function Transaction(){
     setRecords(newData)
   }
   return(
-    <div className='container mt-5'>
-      <div className='text-end'><input type='text' onChange={handleFilter}/></div>
+    <>
+    <div className='w-full border-slate-400 border my-3 p-1'>
+      <h4>Transaction</h4>
+       </div>
+       <div className=''w-full border-slate-400 border>
+      {/* <div className='text-end'><input type='text' onChange={handleFilter}/></div> */}
       <DataTable
       columns={columns}
       data={records}
       fixedHeader
       pagination
+      selectableRowsHighlight
+      highlightOnHover
+      subHeader
+      subHeaderComponent={
+        <input type="text" className='w-25 form-control' placeholder='Search...' onChange={handleFilter}/>
+      }
       ></DataTable>
 
     </div>
+    </>
   )
 }
 export default Transaction;

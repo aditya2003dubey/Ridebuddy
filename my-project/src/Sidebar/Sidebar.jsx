@@ -5,7 +5,7 @@ function Sidebar() {
   const navLinkStyle = "text-gray-400 no-underline"
   const listStyle = "m-0 p-2 w-full hover:border-white hover:border-2 hover:text-white"
   return (
-    <div className='bg-[#674fa3] flex w-48 max-lg:absolute max-lg:-left-full   h-screen  text-sm font-medium  fixed'>
+    <div className='bg-[#674fa3] flex w-48 md:w-64 lg:w- max-lg:absolute max-lg:-left-full   h-screen  text-sm font-medium  fixed'>
       <ul className='pl-2'>
         <NavLink className={navLinkStyle} to={"/dashboard"}><li className={listStyle}><i class="pr-4 bi bi-house-door-fill"></i> Dashboard</li></NavLink> 
         <NavLink className={navLinkStyle} to={"/users"}><li className={listStyle}><i className="pr-4 bi bi-person-fill"></i> Users </li></NavLink>

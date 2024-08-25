@@ -1,8 +1,11 @@
 import React from 'react'
 import DataTable from 'react-data-table-component'
 import { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
+
 
 function Vehicles() {
+  const navigate= useNavigate();
   const columns = [
     {
       name: 'ID',
@@ -45,7 +48,11 @@ function Vehicles() {
     },
     {
       name: 'Action',
-      selector: row => <button>View</button>,
+      selector: row => <div >
+   <button className='px-1 py-1 bg-blue-500 text-white rounded hover:bg-blue-500 transition-all duration-200'onClick={() => navigate("/vechile_details", { state: row })}
+
+        >View</button>
+      </div>
     }
   ];
   const data = [
