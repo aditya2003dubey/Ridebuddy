@@ -8,6 +8,9 @@ import Highlights from './Highlights.jsx'
 import Emergency from './Emergency.jsx'
 import Interests from './Interests.jsx'
 import Reports from './Reports.jsx'
+import Notification from './Notification.jsx'
+import VechileDetails from './VechileDetails.jsx'
+// import View from './View'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -19,9 +22,17 @@ import VehicleVerification from './Vehicle_Verfication.jsx'
 import Banner from './Banner.jsx'
 import Transaction from './Transactions.jsx'
 import Withdrawal from './Withdrawls.jsx'
+import UserVerification from './User_Verification.jsx'
+import View from './View'
+
+
+
 // import Highlights from './Highlights.jsx'
 
 function App() {
+
+ 
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -33,6 +44,21 @@ function App() {
         <div className='basis-1/5'><Sidebar/></div>
         <div className='basis-4/5'><Dashboard/></div>
         </div></> ,
+    },
+    {
+      path: "/view",
+      element: <><Navbar/><div className='flex'>
+        <div className='basis-1/5'><Sidebar/></div>
+        <div className='basis-4/5'><View/></div>
+        </div></> ,
+    },
+    {
+      path:'/vechile_details',
+      element:<><Navbar/><div className='flex'>
+        <div className='basis-1/5'><Sidebar/></div>
+        <div className='basis-4/5'><VechileDetails/></div>
+        </div></>
+
     },
     {
       path: "/users",
@@ -70,6 +96,14 @@ function App() {
         </div></> ,
     },
     {
+      path: "/notification",
+      element: <><Navbar/><div className='flex'>
+        <div className='basis-1/5 w-1/6'><Sidebar/></div>
+        <div className='basis-4/5 w-5/6'><Notification/></div>
+        </div></> ,
+    },
+    
+    {
       path: "/vehicle_verification",
       element: <><Navbar/><div className='flex'>
         <div className='basis-1/5 w-1/6'><Sidebar/></div>
@@ -81,6 +115,13 @@ function App() {
       element: <><Navbar/><div className='flex'>
         <div className='basis-1/5 w-1/6'><Sidebar/></div>
         <div className='basis-4/5 w-5/6' ><Banner/></div>
+        </div></> ,
+    },
+    {
+     path:"/User_Verification",
+     element: <><Navbar/><div className='flex'>
+        <div className='basis-1/5 w-1/6'><Sidebar/></div>
+        <div className='basis-4/5 w-5/6' ><UserVerification/></div>
         </div></> ,
     },
     {
@@ -120,6 +161,7 @@ function App() {
           <div className='basis-4/5 w-5/6' ><Setting/></div>
           </div></> ,
       },
+      
   ]
   );
 

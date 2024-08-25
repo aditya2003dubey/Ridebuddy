@@ -55,7 +55,16 @@ function VehicleVerification(){
    },
    {
     name:'Verification Status',
-    selector:row=>row.verification_status,
+    selector:row=>(
+      <span 
+      className={`px-2 py-1 rounded text-white text-sm ${
+        row.verification_status==='Verified'?'bg-green-500':'bg-red-500'
+      }`}
+      >
+        {row.verification_status}
+      </span>
+
+    ),
     sortable:true
    },
    {
@@ -71,7 +80,7 @@ function VehicleVerification(){
    {
     name:'Action ',
     selector:row=> <div className='btn btn-primary'><button>view</button></div> ,
-    sortable:true
+    sortable:true,
    }
   ];
   const data =[
@@ -84,7 +93,7 @@ function VehicleVerification(){
       "vehicle_photo": "https://via.placeholder.com/150",
       "registration_certificate": "https://via.placeholder.com/150",
       "driving_license": "https://via.placeholder.com/150",
-      "verification_status": "verified",
+      "verification_status": "Verified",
       "status_remark": "remark",
       "created_at": "2022-01-01 00:00:00"
     }
@@ -109,10 +118,10 @@ function VehicleVerification(){
   }
   return(
     <>
-    <div className='w-full border-slate-400 border my-3 p-1'>
+    <div className='w-full md:w-10/12 border-slate-400 border my-3 p-1'>
                  <h4>Vehicle Verification</h4>
             </div>
-     <div className='w-full border-slate-400 border'>
+     <div className='w-12/12 border-slate-400 border'>
       <DataTable
       customStyles={customStyles}
       columns={columns}

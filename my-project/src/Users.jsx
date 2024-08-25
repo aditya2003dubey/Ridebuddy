@@ -1,8 +1,15 @@
 import React from 'react'
 import DataTable from 'react-data-table-component'
 import { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
+
+
 
 function Users() {
+    const navigate=useNavigate()
+    function View(user){
+        navigate("/View",{state:{user}});
+    }
     const columns = [
         {
             name: 'ID',
@@ -42,20 +49,42 @@ function Users() {
                 },
                 {
                 name: 'verification Status',
-                selector: row => row.verification_status,
-                },
+                selector: row =>  (
+                    <span
+                      className={`px-2 py-1 rounded text-white text-sm ${
+                        row.verification_status === 'verified' ? 'bg-green-500' : 'bg-red-500'
+                      }`}
+                    >
+                      {row.verification_status}
+                    </span>
+                  ),
+            },
                 {
                     name: 'User Status',
-                    selector: row => row.user_status,
+                    selector: row => (
+                        <span className={`px-2 py-1  text-black text-sm ${
+                            row.user_status==='blocked'?'bg-red-500':
+                            row.user_status==='active'?'bg-green-500':
+                            'bg-yellow-400'
+
+                        }`}
+                        
+                        >
+                            {row.user_status}
+                        </span>
+                    ),
                 },
                 {
                     name: 'Action',
-                    selector: row => <div><button className='btn btn-danger'>Block</button><button className='btn btn-purple'></button></div>,
+                    selector: row => <div className='flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2'>
+                        <button className='px-1 py-1 bg-red-500 text-white rounded hover:bg-red-700 transition-all duration-200' onClick={()=>handleBlock(row.id)}>Block</button>
+            <button className='px-1 py-1 bg-purple-500 text-white rounded hover:bg-purple-700 transition-all duration-200' onClick={()=>View (row)}>View</button>
+                    </div>,
                 },
     ]
     const data = [
         {
-            id: 1,
+            id: 211,
             name: 'John Doe',
             gender: 'Male',
             phone: '123456789',
@@ -92,6 +121,21 @@ function Users() {
 
     const[records,setRecords] = useState(data);
 
+    // function handleBlock(id){
+    //     alert('User status changed successfully!')
+    // }
+    function handleBlock(id){
+        const updatedRecords=records.map(row=>{
+            if(row.id==id){
+                return{...row,user_status:'blocked'};
+            }
+            return row;
+        });
+        setRecords(updatedRecords);
+        alert('user status changed to block!');
+
+    }
+
     function handleFilter(event){
         const newData = data.filter(row => {
             return row.name.toLowerCase().includes(event.target.value.toLowerCase())
@@ -100,10 +144,10 @@ function Users() {
     }
   return (
     <>
-    <div className='w-11/12 border-slate-400 border my-3 p-2'>
+    <div className='w-12/12 border-slate-400 border my-3 p-2'>
       <h4>Users</h4>
     </div>
-    <div className='w-11/12 border-slate-400 border'>
+    <div className='w-full border-slate-400 border'>
     <DataTable
     customStyles={customStyles}
       columns={columns}
@@ -114,10 +158,11 @@ function Users() {
       highlightOnHover
       subHeader
       subHeaderComponent={
-        <input type="text" className='w-25 form-control' placeholder='Search...' onChange={handleFilter}/>
+        <input type="text" className='w-full md:w-1/4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#674fa3] focus:border-transparent' placeholder='Search...' onChange={handleFilter}/>
       }
       ></DataTable>
     </div>
+    {/* <ToastContainer/> */}
     </>
   )
 }

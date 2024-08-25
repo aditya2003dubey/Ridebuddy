@@ -10,7 +10,7 @@ function Banner(){
         },
         {
            name:'Banner Image', 
-           selector:row =><div><img src="{row.banner_image}" alt="" /></div> ,
+           selector:row=><div><img src='{row.banner_Image} alt="img'/></div>,
            sortable:true
 
         },
@@ -29,7 +29,7 @@ function Banner(){
         },
         {
             name:"Position",
-            selector:row=>row.Posititon,
+            selector:row=>row.Positon,
             sortable:true
         },
         {
@@ -39,7 +39,7 @@ function Banner(){
         },
         {
             name:"Action",
-            selector:row=>row.Action,
+            selector:row=><div className='flex'><button className='btn btn-primary mr-1'>Edit</button><button className='btn btn-danger'>Delete</button></div>,
             sortsble:true
         }
         
@@ -99,19 +99,28 @@ function Banner(){
       }
 
       return (
-
-        <div className='container mt-5'>
-            <div className='text-end'><input type="text" onChange={handleFilter}/></div>
+    <>
+    <div className='w-11/12 border-slate-400 border my-3 p-2'
+    >
+        <h4>Banner</h4>
+    </div>
+        <div className='w-11/12 border-slate-400 border'>
+            {/* <div className='text-end'><input type="text" onChange={handleFilter}/></div> */}
             <DataTable 
             columns={columns}
             data={data}
             fixedHeader
             pagination
+            selectableRowsHighlight
+            highlightOnHover
+            subHeader
+            subHeaderComponent={
+                <input type='text' className='w-25 form-control' placeholder='Search' onChange={handleFilter}/>
+            }
 
            ></DataTable>
-
- 
         </div>
+        </>
     )
 }
 export default Banner;

@@ -92,7 +92,17 @@ const data=[
     Account:'Account Name:test Account Number:test IFSC Code:test',
     Status :'Your Transaction is pending and proceeding in 3 days'
   }
-]
+];
+const customStyles = {
+  headCells: {
+      style: {
+          fontSize: 16,
+          backgroundColor: "#674fa3",
+          display: "inline",
+      },
+  }
+}
+
 const [records,setRecords]=useState(data);
 function handleFilter(event){
   const newData=data.filter(row=>{
@@ -101,18 +111,29 @@ function handleFilter(event){
   setRecords(newData)
 }
   return (
+<>
+<div className='w-full border-slate-400 border my-3 p-1'>
+<h4>Withdrawl</h4>
 
-    <div className='container mt-5'>
-      <div><input type="text" onChange={handleFilter}/></div>
+</div>
+    <div className='w-full border-slate-400 border'>
+      {/* <div><input type="text" onChange={handleFilter}/></div> */}
 <DataTable
 columns={columns}
 data={records}
 // selectableRows
 fixedHeader
 pagination
+selectableRowsHighlight
+highlightOnHover
+subHeader
+subHeaderComponent={
+  <input type="text" className='w-full md:w-1/4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#674fa3] focus:border-transparent' placeholder='Search...' onChange={handleFilter}/>
+}
 
 ></DataTable>
     </div>
+    </>
   )
 }
 export default Withdrawal;
