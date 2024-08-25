@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '../src/Card.jsx'
+import Card from '../Components/Card.jsx'
 
 function Dashboard() {
   return (

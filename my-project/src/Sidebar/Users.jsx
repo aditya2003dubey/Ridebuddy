@@ -1,6 +1,11 @@
 import React from 'react'
 import DataTable from 'react-data-table-component'
 import { useState } from 'react'
+import User from '../User.jsx'
+import {
+    createBrowserRouter,
+    RouterProvider,
+  } from "react-router-dom";
 
 function Users() {
     const columns = [
@@ -50,7 +55,10 @@ function Users() {
                 },
                 {
                     name: 'Action',
-                    selector: row => <div><button className='btn btn-danger'>Block</button><button className='btn btn-purple'></button></div>,
+                    cell: row => <button className='btn btn-primary' onClick={()=>view(row)}>View</button>
+                    // selector: row => <div><button className='btn btn-danger mr-1'>Block</button><button className='btn btn-primary' onClick={view}>View</button></div>,
+                    // sortable: false,
+                    // grow: 2,
                 },
     ]
     const data = [
@@ -91,12 +99,17 @@ function Users() {
     }
 
     const[records,setRecords] = useState(data);
+    // const [item,setItem] = useState();
 
     function handleFilter(event){
         const newData = data.filter(row => {
             return row.name.toLowerCase().includes(event.target.value.toLowerCase())
         })
         setRecords(newData)
+    }
+
+    async function view(e){
+        
     }
   return (
     <>
