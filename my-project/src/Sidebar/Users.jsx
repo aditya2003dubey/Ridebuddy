@@ -2,11 +2,7 @@
 import React from 'react'
 import DataTable from 'react-data-table-component'
 import { useState } from 'react'
-import User from '../User.jsx'
-import {
-    createBrowserRouter,
-    RouterProvider,
-  } from "react-router-dom";
+// import User from '../User.jsx'
 
 function Users() {
     const columns = [
